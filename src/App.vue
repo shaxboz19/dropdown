@@ -1,28 +1,41 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="inner-wrapper">
+    <app-select :items="items" @selected="value" placeholder="выберите элемент" :sort="true" > </app-select>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import appSelect from "./components/input.vue";
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    appSelect,
+  },
+  data() {
+    return {
+      items: [
+        { value: "val1", text: "Узбекистан" },
+        { value: "val2", text: "Россия" },
+        { value: "val3", text: "Германия" },
+        { value: "val4", text: "Бразилия" },
+        { value: "val5", text: "Грузия" },
+      ],
+    };
+  },
+  methods: {
+    value(val) {
+      console.log(val);
+    },
+  },
+};
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+.inner-wrapper {
+  /* width: 100%;
+  height: 100vh;
+  display: flex;
+  padding-top: 100px;
+  justify-content: center; */
 }
 </style>
